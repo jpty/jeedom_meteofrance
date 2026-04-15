@@ -270,7 +270,7 @@ class meteofrance extends eqLogic {
   public function getLocationDetails($_array = array()) {
     $lat = $_array['lat']; $lon = $_array['lon'];
     if($lat != '' && $lon != '') {
-      $url = "https://rpcache-aa.meteofrance.com/internet2018client/2.0/forecast?lat=$lat&lon=$lon&id=&instants=morning,afternoon,evening,night";
+      $url = "https://webservice.meteofrance.com/forecast?lat=$lat&lon=$lon&id=&instants=morning,afternoon,evening,night";
       $ville = $_array['ville'];
       $return = self::callMeteoWS($url,false,true,__FUNCTION__ ."-".$this->getId() ."-$ville.json");
       if(isset($return['properties']['bulletin_cote'])) $bulletin_cote = $return['properties']['bulletin_cote'];
