@@ -615,8 +615,7 @@ class meteofrance extends eqLogic {
       return;
     }
     $i = 0; $cumul = 0; $next = 0; $type = ''; $dt = time();
-    $url = "https://rpcache-aa.meteofrance.com/internet2018client/2.0/nowcast/rain?lat=$lat&lon=$lon";
-    // similar to $url = "https://webservice.meteofrance.com/v3/rain?lat=$lat&lon=$lon";
+    $url = "https://webservice.meteofrance.com/v3/rain?lat=$lat&lon=$lon";
     $return = self::callMeteoWS($url,false,true,__FUNCTION__ ."-".$this->getId() ."-$ville.json");
     if(is_array($return) && isset($return['properties']['forecast'])) {
       $updated_on = strtotime($return['update_time']);
